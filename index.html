@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imran Khan Professional Resume</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load html2pdf.js library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <!-- Configure Tailwind for custom colors and font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#005f73', // A deep teal/cyan for the sidebar
+                        'accent-color': '#0a9396', // A slightly lighter teal for headers
+                        'background-light': '#fefefe',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles to make the resume look like a document */
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+        }
+        .resume-container {
+            /* Simulating an A4 or Letter paper size look */
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .section-header-main {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+        }
+        .dot {
+            height: 5px;
+            width: 5px;
+            background-color: white;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        /* Custom list style for the main experience bullets */
+        .experience-list li::before {
+            content: '•';
+            color: #005f73; /* Primary color dot */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        /* CRITICAL FIX: Ensures elements are not split across PDF pages */
+        .no-break {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container rounded-lg shadow-2xl overflow-hidden">
+        <!-- Removed min-h-[1000px] here to allow content to flow naturally across pages -->
+        <div class="flex flex-col md:flex-row"> 
+            <!-- LEFT COLUMN (Sidebar) - Approximately 35% width on large screens -->
+            <div class="w-full md:w-5/12 lg:w-4/12 bg-primary-dark text-white p-6 space-y-6">
+                
+                <!-- Profile Image -->
+                <div class="flex justify-center mb-6 pt-2 no-break">
+                    <!-- CRITICAL FIX: Added crossorigin="anonymous" to allow image export in PDF -->
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'%3E%3Ccircle cx='64' cy='64' r='64' fill='%23005f73'/%3E%3Ctext x='64' y='74' text-anchor='middle' fill='white' font-size='48' font-family='Arial'%3EIK%3C/text%3E%3C/svg%3E" 
+                         alt="Imran Khan Profile Picture" 
+                         class="rounded-full h-32 w-32 object-cover border-4 border-white shadow-lg"
+                         crossorigin="anonymous">
+                </div>
+
+                <!-- Contact & Location -->
+                <div class="space-y-1 text-sm no-break">
+                    <p class="font-semibold">📞 +91 8948793006</p>
+                    <p class="font-semibold">📧 ikhan793006@gmail.com</p>
+                    <p class="font-semibold">📍 Pune (MH), IN 411014</p>
+                </div>
+                
+                <!-- SUMMARY -->
+                <div class="pt-4 no-break">
+                    <h3 class="text-lg font-bold uppercase tracking-wider border-b-2 border-white pb-1 mb-3">Summary</h3>
+                    <p class="text-sm leading-snug">
+                        Versatile Senior Product & Engineering Leader with 14+ years of experience spanning software development, product strategy, and AI/ML innovation. Proven track record in leading cross-functional teams, developing strategic roadmaps, leveraging data-available data-driven, and customer-centric capabilities. Adept at Agile methodologies, stakeholder management, and translating complex business needs into actionable technical plans that align with organizational objectives.
+                    </p>
+                </div>
+
+                <!-- SKILLS -->
+                <div class="no-break">
+                    <h3 class="text-lg font-bold uppercase tracking-wider border-b-2 border-white pb-1 mb-3">Skills</h3>
+                    <ul class="text-sm space-y-1">
+                        <li class="flex items-center"><span class="dot"></span> Product Ownership and Strategy</li>
+                        <li class="flex items-center"><span class="dot"></span> AI/ML & GenAI Expertise</li>
+                        <li class="flex items-center"><span class="dot"></span> Engineering Leadership</li>
+                        <li class="flex items-center"><span class="dot"></span> Enterprise Technology Delivery</li>
+                        <li class="flex items-center"><span class="dot"></span> MLOps & Data Engineering</li>
+                        <li class="flex items-center"><span class="dot"></span> Scrum Master</li>
+                        <li class="flex items-center"><span class="dot"></span> Governance & Risk Management</li>
+                        <li class="flex items-center"><span class="dot"></span> Stakeholder Management</li>
+                        <li class="flex items-center"><span class="dot"></span> Team Processes</li>
+                        <li class="flex items-center"><span class="dot"></span> Data Driven Decision</li>
+                        <li class="flex items-center"><span class="dot"></span> Python & R Programming</li>
+                        <li class="flex items-center"><span class="dot"></span> MicroService Architecture</li>
+                        <li class="flex items-center"><span class="dot"></span> API Management</li>
+                    </ul>
+                </div>
+
+                <!-- LINKEDIN -->
+                <div class="no-break">
+                    <h3 class="text-lg font-bold uppercase tracking-wider border-b-2 border-white pb-1 mb-3">LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/imran-khan-48b83519/" 
+                    class="text-sm underline hover:text-cyan-200" 
+                    target="_blank" 
+                    rel="noopener noreferrer">
+                    imran-khan-48b83519
+                    </a>
+                </div>
+                <!-- CERTIFICATIONS -->
+                    <h3 class="text-lg font-bold uppercase tracking-wider border-b-2 border-white pb-1 mb-3">Certifications</h3>
+                    <ul class="list-disc ml-4 text-sm space-y-1">
+                        <li class="editable">CSPO (Scrum Alliance)</li>
+                        <li class="editable">Six Sigma (Green Belt)</li>
+                        <li class="editable">Enterprise Design Thinking</li>
+                    </ul>
+
+                <!-- ACHIEVEMENTS -->
+                    <h3 class="text-lg font-bold uppercase tracking-wider border-b-2 border-white pb-1 mb-3">Achievements</h3>
+                    <ul class="list-disc ml-4 text-sm space-y-1">
+                        <li class="editable">Innovation Award</li>
+                        <li class="editable">Leadership Award</li>
+                        <li class="editable">Best Employee</li>
+                    </ul>
+
+            </div>
+
+            <!-- RIGHT COLUMN (Main Content) - Approximately 65% width on large screens -->
+            <div class="w-full md:w-7/12 lg:w-8/12 bg-white p-8 space-y-6 text-gray-800">
+
+                <!-- NAME & TITLE with Download Icon -->
+                <header class="pb-4 flex justify-between items-start no-break">
+                    <div>
+                        <h1 class="text-4xl font-extrabold text-primary-dark">Imran Khan</h1>
+                        <h2 class="text-xl font-medium text-gray-600 mt-1">Senior Product & Engineering Leader</h2>
+                    </div>
+                    <!-- Small PDF Download Icon -->
+                    <button onclick="downloadResumeAsPDF()" title="Download as PDF" class="p-2 mt-1 text-primary-dark hover:text-accent-color transition duration-150 rounded-full hover:bg-gray-100 flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text">
+                            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+                            <path d="M10 12H8"/>
+                            <path d="M16 12h-2"/>
+                            <path d="M10 16H8"/>
+                            <path d="M16 16h-2"/>
+                        </svg>
+                        <span class="sr-only">Download Profile as PDF</span>
+                    </button>
+                </header>
+
+                <!-- EXPERIENCE -->
+                <section class="no-break">
+                    <h3 class="text-xl font-bold uppercase section-header-main text-accent-color">Experience</h3>
+                    
+                    <!-- Role 1 - Updated structure -->
+                    <div class="mb-4 no-break">
+                        <p class="flex justify-between font-semibold text-lg text-gray-900">
+                            <span class="editable">Senior Product Manager at Texala Technologies</span>
+                        </p>
+                        <p class="text-sm text-gray-500 font-normal">January 2020 - Current</p>
+                        <p class="text-sm italic text-gray-700 mb-2">Pune, IN</p>
+                        <ul class="list-none experience-list ml-4 text-sm space-y-1">
+                            <li class="editable"><b>Product Ownership & Strategy : </b>Define and maintain product vision, roadmaps, and backlogs for AI/ML and GenAI initiatives, translating business requirements into actionable features that align with organizational objectives.</li>
+                            <li class="editable"><b>AI/ML & GenAI Expertise: </b>Collaborate with data scientists and engineers to guide the development and deployment of LLMs, generative AI, agentic AI, and RAG pipelines, ensuring products meet functional and technical requirements.</li>
+                            <li class="editable"><b>Software Engineering Collaboration : </b>Work closely with engineering teams throughout the SDLC, contributing to architecture discussions, design reviews, testing, and deployment to deliver secure and scalable enterprise solutions.</li>
+                            <li class="editable"><b>Enterprise Technology Delivery : </b>Coordinate the delivery of AI/ML and software solutions on cloud platforms (AWS, Azure, GCP), ensuring adherence to quality, security, and compliance standards.</li>
+                            <li class="editable"><b>Agile Methodologies : </b>Lead Agile ceremonies, including sprint planning, reviews, and retrospectives, fostering a collaborative team environment that emphasizes continuous improvement and high performance.</li>
+                            <li class="editable"><b>Stakeholder Management : </b>Engage with cross-functional teams and senior leadership to communicate product status, gather feedback, and ensure alignment with business goals.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Role 2 - Updated structure -->
+                    <div class="mb-4 no-break">
+                        <p class="flex justify-between font-semibold text-lg text-gray-900">
+                            <span class="editable">Business Analyst Manager at MQ Spectrum (Kydon Holding)</span>
+                        </p>
+                        <p class="text-sm text-gray-500 font-normal">January 2019 - January 2020</p>
+                        <p class="text-sm italic text-gray-700 mb-2">Singapore</p>
+                        <ul class="list-none experience-list ml-4 text-sm space-y-1">
+                            <li class="editable"><b>Client Advisory & Stakeholder Engagement: </b>Supported senior client stakeholders across HR, L&D, IT, and business teams through structured discovery and solutioning workshops, helping define learning objectives, success criteria, and future-state LMS capabilities.</li>
+                            <li class="editable"><b>LMS Solutioning & Delivery Ownership: </b>Owned functional solutioning for assigned LMS and digital learning initiatives, including roadmap definition, functional architecture, platform configuration strategy, and integration requirements, ensuring alignment with client transformation goals.</li>
+                            <li class="editable"><b>Solutioning, Proposals & Pre-Sales Support: </b>Played a key role in pre-sales and proposal activities, contributing to RFP/RFQ and tender responses through requirement analysis, solution design inputs, effort estimation, delivery approach definition, and risk identification.</li>
+                            <li class="editable"><b>Business & Learning Process Consulting: </b>Advised clients on improving learning processes, governance, and internal structures to address current operational gaps and prepare for future learning and skills needs.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Role 3 (Continued below in original) - Updated structure -->
+                    <div class="mb-4 no-break">
+                        <p class="flex justify-between font-semibold text-lg text-gray-900">
+                            <span class="editable">Senior Business Analyst at Encora Digital</span>
+                        </p>
+                        <p class="text-sm text-gray-500 font-normal">January 2016 - January 2019</p>
+                        <p class="text-sm italic text-gray-700 mb-2">Pune & Bengaluru</p>
+                        <ul class="list-none experience-list ml-4 text-sm space-y-1">
+                            <li class="editable"><b>Stakeholder Engagement & Solution Advisory: </b>Led client discovery and solutioning workshops with senior stakeholders across HR, L&D, IT, and business functions to understand learning challenges, define business outcomes, and co-create future-state LMS and digital learning solutions aligned to enterprise transformation goals.</li>
+                            <li class="editable"><b>Product, LMS & Solution Architecture Ownership: </b>Defined end-to-end solution vision, product roadmaps, and implementation strategies for LMS and learning platforms, translating complex business and learning requirements into scalable functional designs, platform configurations, and integration blueprints.</li>
+                            <li class="editable"><b>Solutioning, Proposals & Pre-Sales Support: </b>Owned and contributed to end-to-end solutioning for proposals, tenders, and RFP/RFQ responses, including requirement analysis, solution architecture, effort estimation, delivery approach, risk assessment, pricing inputs, and value articulation for LMS and AI-enabled learning programs.</li>
+                            <li class="editable"><b>LMS Functional Design & Solution Contribution: </b>Contributed to LMS solution design through functional documentation, process mapping, configuration recommendations, and integration requirements, supporting scalable and reusable learning solutions.</li>
+                            <li class="editable"><b>RFP, Tender & Client Presentation Management: </b>Prepared and reviewed tender documents, RFP/RFQ responses, solution decks, and executive presentations, incorporating solution differentiation, implementation roadmaps, commercial considerations, and transformation impact to support client selection and buy-in.</li>
+                        </ul>
+                        </ul>
+                    </div>
+                    
+                    <!-- Role 4 - Updated structure -->
+                    <div class="mb-4 no-break">
+                        <p class="flex justify-between font-semibold text-lg text-gray-900">
+                            <span class="editable">Business Analyst at Unicode Systems</span>
+                        </p>
+                        <p class="text-sm text-gray-500 font-normal">January 2013 - January 2016</p>
+                        <p class="text-sm italic text-gray-700 mb-2">Lucknow</p>
+                        <ul class="list-none experience-list ml-4 text-sm space-y-1">
+                            <li class="editable">Conducted GAP assessments and process improvements, delivering customized business solutions.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Role 5 - Updated structure -->
+                    <div class="mb-4 no-break">
+                        <p class="flex justify-between font-semibold text-lg text-gray-900">
+                            <span class="editable">Senior Business Analyst at APART India</span>
+                        </p>
+                        <p class="text-sm text-gray-500 font-normal">January 2011 - January 2013</p>
+                        <p class="text-sm italic text-gray-700 mb-2">Pune</p>
+                        <ul class="list-none experience-list ml-4 text-sm space-y-1">
+                            <li class="editable">Developed and maintained educational technology products, improving user experience and engagement.</li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- EDUCATION -->
+                <section class="no-break">
+                    <h3 class="text-xl font-bold uppercase section-header-main text-accent-color">Education</h3>
+                    <ul class="text-sm space-y-1">
+                        <li class="font-semibold">MBA | PGDM</li>
+                        <li class="text-gray-600">Pibum, Pune</li>
+                        <li class="mt-2 font-semibold">BCA | Science</li>
+                        <li class="text-gray-600">Pune University</li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Function to convert the entire resume content (the element with class 'resume-container')
+         * into a single PDF file using the html2pdf.js library.
+         */
+        function downloadResumeAsPDF() {
+            // Target the main container element
+            const element = document.querySelector('.resume-container');
+            
+            // Configuration options for the PDF generation
+            const options = {
+                // Margins for the PDF document (top, left, bottom, right in mm)
+                margin: [10, 10, 10, 10], 
+                filename: 'Imran_Khan_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                // html2canvas settings for high quality rendering and cross-origin image support
+                html2canvas: { scale: 2, logging: false, dpi: 192, letterRendering: true, useCORS: true }, 
+                // jsPDF settings for A4 portrait format
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Call the html2pdf function to generate and save the document
+            html2pdf().set(options).from(element).save();
+        }
+    </script>
+</body>
+</html>
